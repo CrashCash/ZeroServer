@@ -22,5 +22,5 @@ setup(
     install_requires=['flask', 'gunicorn',
                       'zerobt @ https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
     include_package_data=True,
-    package_data={'': ['templates/*']}
+    package_data={'zeroserver': ['templates/*']}
 )
