@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+Type=notify
+User=root
+Group=root
+RuntimeDirectory=gunicorn
+ExecStart=/usr/local/bin/gunicorn -b 0.0.0.0:80 "zero_webapp:create_app()"
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

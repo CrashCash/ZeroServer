@@ -32,6 +32,8 @@ Start web server with:
 
 ```gunicorn -b 0.0.0.0:80 "zero_webapp:create_app()" &```
 
+```systemctl enable --now gunicorn.service```
+
 ### More Example Code
 These are like the examples from ZeroBT, except they use the intermediate
 server instead of talking to the bike directly.
