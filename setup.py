@@ -18,6 +18,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    install_requires=['flask', 'gunicorn', 'zerobt'],
-    dependency_links=['https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
+    install_requires=['flask', 'gunicorn',
+                      'zerobt @ https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
 )

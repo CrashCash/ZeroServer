@@ -22,9 +22,9 @@ Model B) and install Raspberry Pi OS Lite on it.
 
 Install
 
-```wget -nd https://raw.githubusercontent.com/CrashCash/ZeroServer/master/dist/zeroserver-1.0.0-py3-none-any.whl```
+```pip3 install https://github.com/CrashCash/ZeroServer/raw/master/dist/zeroserver-1.0.tar.gz```
 
-I use gunicorn because it's a lot lighter than Apache. Install gunicorn
+I use gunicorn because it's a lot lighter than Apache.
 
 Pair the bike to the Raspberry Pi as described in https://github.com/CrashCash/ZeroBT
 
