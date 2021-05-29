@@ -2,7 +2,7 @@
 # https://docs.python.org/3/distutils/sourcedist.html
 # pip3 install https://github.com/CrashCash/ZeroServer/raw/master/dist/zeroserver-1.0.tar.gz
 #
-from setuptools import find_packages, setup
+from setuptools import setup
 desc="""\
 ZeroServer
 ==========
