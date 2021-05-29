@@ -24,15 +24,17 @@ Install with:
 
 ```pip3 install https://github.com/CrashCash/ZeroServer/raw/master/dist/zeroserver-1.0.tar.gz```
 
+```wget -nd https://github.com/CrashCash/ZeroServer/blob/master/gunicorn.service -P /etc/systemd/system```
+
 I use gunicorn because it's a lot lighter than Apache.
 
 Pair the bike to the Raspberry Pi as described in https://github.com/CrashCash/ZeroBT
 
 Start web server with:
 
-```gunicorn -b 0.0.0.0:80 "zero_webapp:create_app()" &```
-
 ```systemctl enable --now gunicorn.service```
+
+After this, it will be automatically started at boot time.
 
 ### More Example Code
 These are like the examples from ZeroBT, except they use the intermediate
