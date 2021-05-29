@@ -2,6 +2,8 @@
 # https://docs.python.org/3/distutils/sourcedist.html
 # pip3 install https://github.com/CrashCash/ZeroServer/raw/master/dist/zeroserver-1.0.tar.gz
 #
+# doesn't install templates!
+#
 from setuptools import setup
 desc="""\
 ZeroServer
@@ -17,6 +19,8 @@ setup(
     version='1.0',
     zip_safe=False,
     py_modules=['zero_server', 'zero_webapp'],
+    include_package_data=True,
+    package_data={'zero_webapp': ['templates/*']},
     install_requires=['flask', 'gunicorn',
                       'zerobt @ https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
 )
