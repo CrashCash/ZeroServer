@@ -20,7 +20,7 @@ but the glue is not.
 Set up a Raspberry Pi with built-in Bluetooth and WiFi (like a Raspberry Pi 3
 Model B) and install Raspberry Pi OS Lite on it.
 
-Install
+Install with:
 
 ```pip3 install https://github.com/CrashCash/ZeroServer/raw/master/dist/zeroserver-1.0.tar.gz```
 
@@ -28,7 +28,9 @@ I use gunicorn because it's a lot lighter than Apache.
 
 Pair the bike to the Raspberry Pi as described in https://github.com/CrashCash/ZeroBT
 
-```gunicorn "ZeroServer:create_app()"```
+Start web server with:
+
+```gunicorn -b 0.0.0.0:80 "zero_webapp:create_app()" &```
 
 ### More Example Code
 These are like the examples from ZeroBT, except they use the intermediate
