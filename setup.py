@@ -15,9 +15,8 @@ setup(
     url='https://github.com/CrashCash/ZeroServer',
     name='zeroserver',
     version='1.0',
-    packages=find_packages(),
-    include_package_data=True,
     zip_safe=False,
+    py_modules=['zero_server', 'zero_webapp'],
     install_requires=['flask', 'gunicorn',
                       'zerobt @ https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
 )
