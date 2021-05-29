@@ -21,7 +21,6 @@ setup(
     py_modules=['zero_server', 'zero_webapp'],
     install_requires=['flask', 'gunicorn',
                       'zerobt @ https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
-    data_files=[('templates', ['templates/bike_info.html',
-                               'templates/charging_status.html',
-                               'templates/error.html'])]
+    include_package_data=True,
+    package_data={'': ['templates/*']}
 )
