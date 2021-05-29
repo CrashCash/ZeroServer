@@ -24,7 +24,7 @@ Install with:
 
 ```pip3 install https://github.com/CrashCash/ZeroServer/raw/master/dist/zeroserver-1.0.tar.gz```
 
-```wget -nd https://github.com/CrashCash/ZeroServer/blob/master/gunicorn.service -P /etc/systemd/system```
+```wget -nd -N https://raw.githubusercontent.com/CrashCash/ZeroServer/master/gunicorn.service -P /etc/systemd/system```
 
 I use gunicorn because it's a lot lighter than Apache.
 
