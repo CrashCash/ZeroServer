@@ -4,7 +4,7 @@
 #
 # doesn't install templates!
 #
-from distutils.core import setup
+from setuptools import setup
 desc="""\
 ZeroServer
 ==========
@@ -21,6 +21,7 @@ setup(
     py_modules=['zero_server', 'zero_webapp'],
     install_requires=['flask', 'gunicorn',
                       'zerobt @ https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
-    include_package_data=True,
+    packages=['zeroserver'],
+    package_dir={'zeroserver': '.'},
     package_data={'zeroserver': ['templates/*']}
 )
