@@ -1,0 +1,36 @@
+#! /usr/bin/env python3
+# print charging info suitable for a spreadsheet
+
+import time
+import zero_server
+
+# header line
+print('"Time"',
+      '"Time\nUntil\nCharged"',
+      '"Battery\nCurrent\n(amps)"', '"Cell\nVoltage\nMax\n(mV)"', '"Cell\nVoltage\nMin\n(mV)"',
+      '"Pack\nCapacity\n(ah)"', '"Pack\nCapacity\nRemain\n(ah)"', '"Pack\nTemp\n1 (°C)"', '"Pack\nTemp\n2 (°C)"',
+      '"Pack\nTemp\n3 (°C)"', '"Pack\nTemp\n4 (°C)"', '"Pack\nTemp\n5 (°C)"', '"Pack\nTemp\n6 (°C)"',
+      '"Pack\nTemp\n7 (°C)"', '"Pack\nTemp\n8 (°C)"', '"Pack\nTemp\nMax (°C)"', '"Pack\nTemp\nMin (°C)"',
+      '"Pack\nVoltage\n(mV)"', '"Charge\n(%)"', sep=',', flush=True)
+
+while True:
+    pwpk=zero_server.read('PwPk')
+    if isinstance(pwpk, str):
+        print(pwpk)
+        raise SystemExit
+
+    mbbr=zero_server.read('MbbR')
+    pwpk=zero_server.read('PwPk')
+    dst3=zero_server.read('DSt3')
+
+    t=dst3['minutes_until_charged']
+    h, m=divmod(t, 60)
+
+    print(pwpk['time'], '%d:%02d' % (h, m),
+          pwpk['battery_current_amps'], pwpk['cell_voltage_max_mv'], pwpk['cell_voltage_min_mv'],
+          pwpk['pack_capacity_ah'], pwpk['pack_capacity_remain_ah'], pwpk['pack_temp_1_c'], pwpk['pack_temp_2_c'],
+          pwpk['pack_temp_3_c'], pwpk['pack_temp_4_c'], pwpk['pack_temp_5_c'], pwpk['pack_temp_6_c'],
+          pwpk['pack_temp_7_c'], pwpk['pack_temp_8_c'], pwpk['pack_temp_max_c'], pwpk['pack_temp_min_c'],
+          pwpk['pack_voltage_mv'], pwpk['charge_pct'], sep=',', flush=True)
+
+    time.sleep(60)

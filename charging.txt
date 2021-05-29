@@ -1,0 +1,101 @@
+Name: ZeroMotorcycles17210
+Addr: 00:06:66:1C:BA:7A
+Port: 1
+
+BtSt
+avg_pwr_over_dist_kw_mile: 0
+battery_charge_critical_low: False
+battery_charge_low: False
+battery_out_of_balance: False
+battery_temp_cold: False
+battery_temp_critical_high: False
+battery_temp_high: False
+bike_on: True
+charge_pct: 34
+charger_0_attached: True
+charger_1_attached: False
+odometer_miles: 1132
+pack_capacity_ah: 142
+pack_capacity_remain_ah: 48
+pack_temp_c: [32, 32, 65436, 65436, 65436, 65436, 65436, 65436]
+pack_temp_max_c: 65436
+pack_temp_min_c: 32
+pack_voltage_mv: 100392
+time: 2021-05-25 21:51:35
+total_power_used_kw: 172
+type: BtSt
+
+DSt1
+error_code: 47
+motor_rpm: 0
+time: 2021-05-25 21:51:35
+trip_1_km: 148.7
+type: DSt1
+
+DSt2
+est_range_km: 63.08
+motor_temp_c: 42
+time: 2021-05-25 21:51:35
+trip_2_km: 1822.1
+type: DSt2
+
+DSt3
+minutes_until_charged: 509
+time: 2021-05-25 21:51:36
+type: DSt3
+wh_per_km_avg: 58.25
+wh_per_km_instant: 0.0
+wh_per_km_life: 63.91
+
+Gbki
+bms_fw_ver: 39
+bms_partno: 
+make: Zero Motorcycles
+mbb_fw_ver: 32
+mbb_partno: 40-08064D
+model: SR
+time: 2021-05-25 21:51:36
+type: Gbki
+vin: 538SMLZ69MCG17210
+
+MbbR
+battery_current_amps: -10
+bike_armed: False
+bike_speed_mph: 0
+brake_applied: False
+charging: True
+controller_temp_c: 30
+kickstand_down: False
+killswitch_stop: False
+max_custom_brake_regen_torque_pct: 100
+max_custom_regen_torque_pct: 74
+max_custom_speed_mph: 106
+max_custom_torque_pct: 100
+motor_current_amps: 0
+motor_speed_rpm: 0
+motor_temp_c: 42
+motor_torque_nm: 0
+temp_warning: False
+time: 2021-05-25 21:51:36
+type: MbbR
+
+PwPk
+battery_current_amps: -9
+cell_voltage_max_mv: 3587
+cell_voltage_min_mv: 3579
+cell_voltage_mv: [3579, 3584, 3585, 3585, 3585, 3584, 3585, 3586, 3586, 3585, 3586, 3584, 3587, 3586, 3586, 3583, 3587, 3586, 3585, 3586, 3586, 3586, 3587, 3587, 3585, 3586, 3585, 3582]
+charge_pct: 31
+controller_temp_c: 30
+motor_current_amps: 0
+motor_temp_c: 42
+motor_temp_max_c: 43
+num_charge_cycles: 27
+pack_capacity_ah: 142
+pack_capacity_remain_ah: 48
+pack_temp_c: [32, 32, 65436, 65436, 65436, 65436, 65436, 65436]
+pack_temp_max_c: 32
+pack_temp_min_c: 31
+pack_voltage_mv: 100389
+time: 2021-05-25 21:51:36
+type: PwPk
+
