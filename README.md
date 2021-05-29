@@ -10,33 +10,31 @@ is only about 20 feet maximum, so I put a Raspberry Pi on the wall of my
 garage to talk to the bike and serve a web page I can view on my phone from
 anywhere in the house.
 
-It leverages my ZeroBT Python library which handles the Bluetooth protocol.
+It leverages my [ZeroBT Python library](https://github.com/CrashCash/ZeroBT)
+which handles the Bluetooth protocol.
+
+Note at the moment I'm trying to package this, so all the pieces are there,
+but the glue is not.
 
 ### Installation
-Set up a Raspberry Pi with built-in Bluetooth and WiFi like a Raspberry Pi 3
-Model B and install Raspberry Pi OS Lite on it.
-
-Place zerobt.py somewhere on the Python path like
-/usr/lib/python3/dist-packages (Debian/Raspberry Pi OS)
-
-```wget -nd https://raw.githubusercontent.com/CrashCash/ZeroBT/master/zerobt.py -P /usr/lib/python3/dist-packages/```
+Set up a Raspberry Pi with built-in Bluetooth and WiFi (like a Raspberry Pi 3
+Model B) and install Raspberry Pi OS Lite on it.
 
 Install
 
-```wget -nd https://raw.githubusercontent.com/CrashCash/ZeroServer/master/zerobt.py -P /usr/lib/python3/dist-packages/```
+```wget -nd https://raw.githubusercontent.com/CrashCash/ZeroServer/master/dist/zeroserver-1.0.0-py3-none-any.whl```
 
-In
+I use gunicorn because it's a lot lighter than Apache. Install gunicorn
 
 Pair the bike to the Raspberry Pi as described in https://github.com/CrashCash/ZeroBT
 
+```gunicorn "ZeroServer:create_app()"```
+
 ### More Example Code
-charging_data_server - Script that retrieves information as the bike is charging, and
-outputs it in a CSV format suitable for a spreadsheet.
+These are like the examples from ZeroBT, except they use the intermediate
+server instead of talking to the bike directly.
 
 charging_status_server - Short sweet charging status script for the command line.
 
-
-
-![Ride displayed in Google Earth](/screenshot-1.png?raw=true "Ride displayed in Google Earth")
-
-![One point with data](/screenshot-2.png?raw=true "One point with data")
+charging_data_server - Script that retrieves information as the bike is charging, and
+outputs it in a CSV format suitable for a spreadsheet.
