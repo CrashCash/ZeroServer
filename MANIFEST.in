@@ -1,4 +1,0 @@
-include *.py
-include templates
-graft templates
-global-exclude *.pyc
