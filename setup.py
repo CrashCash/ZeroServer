@@ -21,5 +21,5 @@ setup(
                       'zerobt @ https://github.com/CrashCash/ZeroBT/raw/master/dist/zerobt-1.0.tar.gz'],
     packages=['zero_webapp'],
     package_data={'zero_webapp': ['templates/*']},
-    data_files=[('/etc/systemd/system', ['gunicorn.service'])]
+    data_files=[('/etc/systemd/system/', ['gunicorn.service'])]
 )
