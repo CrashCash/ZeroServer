@@ -13,22 +13,23 @@ anywhere in the house.
 It leverages my [ZeroBT Python library](https://github.com/CrashCash/ZeroBT)
 which handles the Bluetooth protocol.
 
-Note at the moment I'm trying to package this, so all the pieces are there,
-but the glue is not.
-
 ### Installation
 Set up a Raspberry Pi with built-in Bluetooth and WiFi (like a Raspberry Pi 3
 Model B) and install Raspberry Pi OS Lite on it.
+
+Pair the bike to the Raspberry Pi as described in the [ZeroBT Python
+library](https://github.com/CrashCash/ZeroBT) README.
 
 Install with:
 
 ```pip3 install https://github.com/CrashCash/ZeroServer/raw/master/dist/zeroserver-1.0.tar.gz```
 
+This will install all the prerequisites, including my Bluetooth library and
+the gunicorn server. I use gunicorn because it's a lot lighter than Apache.
+
+Set up systemd with:
+
 ```wget -nd -N https://raw.githubusercontent.com/CrashCash/ZeroServer/master/gunicorn.service -P /etc/systemd/system```
-
-I use gunicorn because it's a lot lighter than Apache.
-
-Pair the bike to the Raspberry Pi as described in https://github.com/CrashCash/ZeroBT
 
 Start web server with:
 
@@ -36,9 +37,15 @@ Start web server with:
 
 After this, it will be automatically started at boot time.
 
-### More Example Code
-These are like the examples from ZeroBT, except they use the intermediate
-server instead of talking to the bike directly.
+### Operational Notes
+
+The motorcycle can handle only one Bluetooth connection at once, so there is a
+zero_server.py script that runs as a daemon and serializes the communication
+to the bike. It caches the socket and ensures it's properly closed.
+
+### Example Code
+These are similar to the examples from ZeroBT, except they use the
+intermediate server instead of talking to the bike directly.
 
 charging_status_server - Short sweet charging status script for the command line.
 
