@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+import datetime
 import zero_server
 from flask import Flask, render_template
 
@@ -25,6 +26,8 @@ def create_app(test_config=None):
 
        t=dst3['minutes_until_charged']
        h, m=divmod(t, 60)
+       t2=datetime.datetime.now()+datetime.timedelta(minutes=t)
+       target=t2.strftime('%-I:%M %p').lower()
 
        warnings=[]
        if btst['battery_charge_critical_low']:
@@ -41,7 +44,7 @@ def create_app(test_config=None):
            warnings.append('Battery hot')
 
        data={'time': pwpk['time'],
-             'time_remaining': '%d:%02d' % (h, m),
+             'time_remaining': '%d:%02d' % (h, m), 'time_target': target,
              'min_temp': '%.1f' % (c2f(pwpk['pack_temp_min_c'])),
              'max_temp': '%.1f' % (c2f(pwpk['pack_temp_max_c'])),
              'voltage': '%.1f' % (pwpk['pack_voltage_mv']/1000),
